@@ -1,0 +1,4382 @@
+body {
+    padding-top: 40px;
+    padding-bottom: 71px;
+    background-color: #56674b;
+    background-image: none
+}
+
+.ui.top.menu {
+    background-color: #1b1c1d;
+    background-image: none
+}
+
+.tips .tips-slides .tips-slide {
+    display: none
+}
+
+.tips .tips-slides .tips-slide p.description {
+    min-height: 60px
+}
+
+.tips .tips-slides .tips-slide.active {
+    display: block
+}
+
+.tips nav {
+    margin-top: 1em;
+    text-align: center;
+    color: #a0a0a0
+}
+
+.tips nav a {
+    color: inherit
+}
+
+#planner {
+    height: 100%
+}
+
+#planner #plannerEditor {
+    height: 100%
+}
+
+#planner #plannerReport {
+    width: 280px;
+    height: 100%
+}
+
+#planner #plannerReport .ui.accordion .title {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding: .75em 0
+}
+
+#planner #plannerReport .ui.accordion .content .ui.inverted.selection.list>.item:hover {
+    background-color: transparent;
+    cursor: default
+}
+
+#planner #plannerReport .ui.accordion .content .ui.inverted.selection.list>.item>img {
+    float: left
+}
+
+#planner #plannerReport .ui.accordion .content .ui.inverted.selection.list>.item>.content {
+    display: block;
+    margin-left: 23px
+}
+
+#planner #plannerReport .ui.accordion .content .ui.inverted.selection.list>a.item:hover {
+    background-color: rgba(255,255,255,.15);
+    cursor: pointer
+}
+
+#mapContainer {
+    position: relative;
+    margin-top: 2em
+}
+
+#mapContainer>#map {
+    position: relative;
+    width: 0;
+    height: 0
+}
+
+#mapContainer>#map>#mapExpansions {
+    background-color: #8fac7d;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg class='grid' width='110' height='110' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='tile' width='22' height='22' patternUnits='userSpaceOnUse'%3E%3Cline x1='0' y1='0' x2='100%25' y2='0' stroke='rgba(117, 150, 96, 0.9998999999999999)' stroke-width='2' class='tile' /%3E%3Cline x1='0' y1='0' x2='0' y2='100%25' stroke='rgba(117, 150, 96, 0.9998999999999999)' stroke-width='2' /%3E%3C/pattern%3E%3Cpattern id='expansion' width='110' height='110' patternUnits='userSpaceOnUse'%3E%3Cline x1='0' y1='0' x2='100%25' y2='0' stroke='rgba(92, 119, 76, 0.9998999999999999)' stroke-width='2' /%3E%3Cline x1='0' y1='0' x2='0' y2='100%25' stroke='rgba(92, 119, 76, 0.9998999999999999)' stroke-width='2' /%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23tile)' /%3E%3Crect width='100%25' height='100%25' fill='url(%23expansion)' /%3E%3C/svg%3E")
+}
+
+#mapContainer>#map>#mapExpansions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0
+}
+
+#mapContainer>#map>#mapExpansions>.expansion {
+    position: absolute;
+    background-color: rgba(0,0,0,.2)
+}
+
+#mapContainer>#map>#mapExpansions>.expansion.unlocked {
+    background-color: transparent
+}
+
+#mapContainer>#map>#mapBuildings {
+    position: absolute;
+    top: 0;
+    height: 0
+}
+
+#mapContainer>#map>#mapBuildings>.building {
+    position: absolute;
+    background-color: #fff;
+    color: #b3b3b3;
+    border: 1px solid #e6e6e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer
+}
+
+#mapContainer>#map>#mapBuildings>.building i {
+    display: block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background-image: url(../img/icons/misc/unknown.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .8
+}
+
+#mapContainer>#map>#mapBuildings>.building span {
+    display: none;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    cursor: inherit
+}
+
+#mapContainer>#map>#mapBuildings>.building span.tier {
+    font-weight: 400;
+    font-size: .8em
+}
+
+#mapContainer>#map>#mapBuildings>.building.colliding,#mapContainer>#map>#mapBuildings>.building.selling {
+    border-color: #c00!important;
+    background-color: #f66!important;
+    border-width: 2px!important
+}
+
+#mapContainer>#map>#mapBuildings>.building.colliding span,#mapContainer>#map>#mapBuildings>.building.selling span {
+    color: #c00!important
+}
+
+#mapContainer>#map>#mapBuildings>.building.moving {
+    opacity: .7
+}
+
+#mapContainer>#map>#mapBuildings>.building.is-premium i::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url(../img/icons/buildings/overlay_premium.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .8
+}
+
+#mapContainer>#map.mode-expand>#mapExpansions>.expansion {
+    cursor: pointer
+}
+
+#mapContainer>#map.mode-expand>#mapExpansions>.expansion:hover {
+    background-color: rgba(0,0,0,.1)
+}
+
+#mapContainer>#map.mode-expand>#mapExpansions>.expansion.unlocked:hover {
+    background-color: rgba(219,40,40,.1)
+}
+
+#mapContainer>#map.zoom-14>#mapExpansions {
+    background-color: #8fac7d;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg class='grid' width='70' height='70' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='tile' width='14' height='14' patternUnits='userSpaceOnUse'%3E%3Cline x1='0' y1='0' x2='100%25' y2='0' stroke='rgba(117, 150, 96, 0.9998999999999999)' stroke-width='2' class='tile' /%3E%3Cline x1='0' y1='0' x2='0' y2='100%25' stroke='rgba(117, 150, 96, 0.9998999999999999)' stroke-width='2' /%3E%3C/pattern%3E%3Cpattern id='expansion' width='70' height='70' patternUnits='userSpaceOnUse'%3E%3Cline x1='0' y1='0' x2='100%25' y2='0' stroke='rgba(92, 119, 76, 0.9998999999999999)' stroke-width='2' /%3E%3Cline x1='0' y1='0' x2='0' y2='100%25' stroke='rgba(92, 119, 76, 0.9998999999999999)' stroke-width='2' /%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23tile)' /%3E%3Crect width='100%25' height='100%25' fill='url(%23expansion)' /%3E%3C/svg%3E")
+}
+
+#mapContainer>#map.zoom-18>#mapExpansions {
+    background-color: #8fac7d;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg class='grid' width='90' height='90' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='tile' width='18' height='18' patternUnits='userSpaceOnUse'%3E%3Cline x1='0' y1='0' x2='100%25' y2='0' stroke='rgba(117, 150, 96, 0.9998999999999999)' stroke-width='2' class='tile' /%3E%3Cline x1='0' y1='0' x2='0' y2='100%25' stroke='rgba(117, 150, 96, 0.9998999999999999)' stroke-width='2' /%3E%3C/pattern%3E%3Cpattern id='expansion' width='90' height='90' patternUnits='userSpaceOnUse'%3E%3Cline x1='0' y1='0' x2='100%25' y2='0' stroke='rgba(92, 119, 76, 0.9998999999999999)' stroke-width='2' /%3E%3Cline x1='0' y1='0' x2='0' y2='100%25' stroke='rgba(92, 119, 76, 0.9998999999999999)' stroke-width='2' /%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23tile)' /%3E%3Crect width='100%25' height='100%25' fill='url(%23expansion)' /%3E%3C/svg%3E")
+}
+
+#mapContainer>#map.zoom-22>#mapExpansions {
+    background-color: #8fac7d;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg class='grid' width='110' height='110' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='tile' width='22' height='22' patternUnits='userSpaceOnUse'%3E%3Cline x1='0' y1='0' x2='100%25' y2='0' stroke='rgba(117, 150, 96, 0.9998999999999999)' stroke-width='2' class='tile' /%3E%3Cline x1='0' y1='0' x2='0' y2='100%25' stroke='rgba(117, 150, 96, 0.9998999999999999)' stroke-width='2' /%3E%3C/pattern%3E%3Cpattern id='expansion' width='110' height='110' patternUnits='userSpaceOnUse'%3E%3Cline x1='0' y1='0' x2='100%25' y2='0' stroke='rgba(92, 119, 76, 0.9998999999999999)' stroke-width='2' /%3E%3Cline x1='0' y1='0' x2='0' y2='100%25' stroke='rgba(92, 119, 76, 0.9998999999999999)' stroke-width='2' /%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23tile)' /%3E%3Crect width='100%25' height='100%25' fill='url(%23expansion)' /%3E%3C/svg%3E")
+}
+
+#mapContainer>#map.zoom-26>#mapExpansions {
+    background-color: #8fac7d;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg class='grid' width='130' height='130' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='tile' width='26' height='26' patternUnits='userSpaceOnUse'%3E%3Cline x1='0' y1='0' x2='100%25' y2='0' stroke='rgba(117, 150, 96, 0.9998999999999999)' stroke-width='2' class='tile' /%3E%3Cline x1='0' y1='0' x2='0' y2='100%25' stroke='rgba(117, 150, 96, 0.9998999999999999)' stroke-width='2' /%3E%3C/pattern%3E%3Cpattern id='expansion' width='130' height='130' patternUnits='userSpaceOnUse'%3E%3Cline x1='0' y1='0' x2='100%25' y2='0' stroke='rgba(92, 119, 76, 0.9998999999999999)' stroke-width='2' /%3E%3Cline x1='0' y1='0' x2='0' y2='100%25' stroke='rgba(92, 119, 76, 0.9998999999999999)' stroke-width='2' /%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23tile)' /%3E%3Crect width='100%25' height='100%25' fill='url(%23expansion)' /%3E%3C/svg%3E")
+}
+
+#mapContainer>#map.zoom-30>#mapExpansions {
+    background-color: #8fac7d;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg class='grid' width='150' height='150' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='tile' width='30' height='30' patternUnits='userSpaceOnUse'%3E%3Cline x1='0' y1='0' x2='100%25' y2='0' stroke='rgba(117, 150, 96, 0.9998999999999999)' stroke-width='2' class='tile' /%3E%3Cline x1='0' y1='0' x2='0' y2='100%25' stroke='rgba(117, 150, 96, 0.9998999999999999)' stroke-width='2' /%3E%3C/pattern%3E%3Cpattern id='expansion' width='150' height='150' patternUnits='userSpaceOnUse'%3E%3Cline x1='0' y1='0' x2='100%25' y2='0' stroke='rgba(92, 119, 76, 0.9998999999999999)' stroke-width='2' /%3E%3Cline x1='0' y1='0' x2='0' y2='100%25' stroke='rgba(92, 119, 76, 0.9998999999999999)' stroke-width='2' /%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23tile)' /%3E%3Crect width='100%25' height='100%25' fill='url(%23expansion)' /%3E%3C/svg%3E")
+}
+
+#mapContainer>#map.highlight-population>#mapBuildings>.building {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%)
+}
+
+#mapContainer>#map.highlight-population>#mapBuildings>.building.highlight-population {
+    -webkit-filter: none;
+    filter: none
+}
+
+#mapContainer>#map.highlight-population>#mapBuildings>.building.highlight-population i {
+    background-image: url(../img/icons/misc/population.png)
+}
+
+#mapContainer>#map.highlight-culture>#mapBuildings>.building {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%)
+}
+
+#mapContainer>#map.highlight-culture>#mapBuildings>.building.highlight-culture {
+    -webkit-filter: none;
+    filter: none
+}
+
+#mapContainer>#map.highlight-culture>#mapBuildings>.building.highlight-culture i {
+    background-image: url(../img/icons/misc/culture.png)
+}
+
+#mapContainer>#map.highlight-mana>#mapBuildings>.building {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%)
+}
+
+#mapContainer>#map.highlight-mana>#mapBuildings>.building.highlight-mana {
+    -webkit-filter: none;
+    filter: none
+}
+
+#mapContainer>#map.highlight-mana>#mapBuildings>.building.highlight-mana i {
+    background-image: url(../img/icons/buildings/mana.png)
+}
+
+#mapContainer>#map.highlight-seeds>#mapBuildings>.building {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%)
+}
+
+#mapContainer>#map.highlight-seeds>#mapBuildings>.building.highlight-seeds {
+    -webkit-filter: none;
+    filter: none
+}
+
+#mapContainer>#map.highlight-seeds>#mapBuildings>.building.highlight-seeds i {
+    background-image: url(../img/icons/buildings/seeds.png)
+}
+
+#mapContainer>#map.highlight-street>#mapBuildings>.building {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%)
+}
+
+#mapContainer>#map.highlight-street>#mapBuildings>.building.highlight-street {
+    -webkit-filter: none;
+    filter: none
+}
+
+#mapContainer>#map.highlight-street>#mapBuildings>.building.highlight-street i {
+    background-image: url(../img/icons/buildings/street.png)
+}
+
+#mapContainer>#map.highlight-set>#mapBuildings>.building {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%)
+}
+
+#mapContainer>#map.highlight-set>#mapBuildings>.building.highlight-set {
+    -webkit-filter: none;
+    filter: none
+}
+
+#mapContainer>#map.highlight-set>#mapBuildings>.building.highlight-set i {
+    background-image: url(../img/icons/buildings/set.png)
+}
+
+#mapContainer>#map.show-levels>#mapBuildings>.building span.level {
+    display: inline
+}
+
+#mapContainer>#map.show-levels>#mapBuildings>.building span.stage {
+    display: inline!important
+}
+
+#mapContainer>#map.show-tiers>#mapBuildings>.building span.tier {
+    display: inline!important
+}
+
+#buildingMenu,#expansionMenu {
+    position: fixed;
+    margin: 0;
+    z-index: 201;
+    display: none
+}
+
+#buildModal .ui.card .content .fields {
+    margin-bottom: 0
+}
+
+#buildModal .ui.card .extra.content img {
+    -webkit-filter: grayscale(100%) opacity(40%);
+    filter: grayscale(100%) opacity(40%)!important;
+    display: inline;
+    vertical-align: initial
+}
+
+#buildModal .ui.card .extra.content ul.resources {
+    width: 100%
+}
+
+#buildModal .ui.card .extra.content ul.resources li.right {
+    float: right
+}
+
+#relicsModal td.boost-none {
+    background-color: #f9fafb
+}
+
+#relicsModal td.boost-common {
+    background-color: #fff8db
+}
+
+#relicsModal td.boost-sentient {
+    background-color: #dff0ff
+}
+
+.ui.modal table[data-table] thead tr th [data-sort] {
+    cursor: pointer;
+    color: inherit
+}
+
+.ui.modal table[data-table] thead tr th [data-sort] .fitted.icon {
+    margin-left: 3px!important
+}
+
+.ui.modal table[data-table] tbody tr td .my-icon {
+    float: left;
+    margin-right: 5px
+}
+
+.ui.modal table[data-table] tbody tr td .right:not(.button) {
+    color: #a0a0a0;
+    float: right
+}
+
+i.my-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background-image: url(../img/icons/unknown.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+i.my-icon.my-icon-premium::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url(../img/icons/buildings/overlay_premium.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.ui.modal [data-base-name=H_Humans_Townhall] i.my-icon {
+    background-image: url(../img/icons/buildings/humans_mainhall.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=H_Humans_Townhall] {
+    background-color: #444;
+    border-color: #2b2b2b
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=H_Humans_Townhall] i {
+    background-image: url(../img/icons/buildings/humans_mainhall.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=H_Humans_Townhall] span {
+    color: #000
+}
+
+.ui.modal [data-base-name=H_Elves_Townhall] i.my-icon {
+    background-image: url(../img/icons/buildings/elves_mainhall.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=H_Elves_Townhall] {
+    background-color: #444;
+    border-color: #2b2b2b
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=H_Elves_Townhall] i {
+    background-image: url(../img/icons/buildings/elves_mainhall.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=H_Elves_Townhall] span {
+    color: #000
+}
+
+.ui.modal [data-base-name=Z_Humans_WorkerHut] i.my-icon {
+    background-image: url(../img/icons/buildings/humans_builders.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=Z_Humans_WorkerHut] {
+    background-color: #444;
+    border-color: #2b2b2b
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=Z_Humans_WorkerHut] i {
+    background-image: url(../img/icons/buildings/humans_builders.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=Z_Humans_WorkerHut] span {
+    color: #000
+}
+
+.ui.modal [data-base-name=Z_Elves_WorkerHut] i.my-icon {
+    background-image: url(../img/icons/buildings/elves_builders.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=Z_Elves_WorkerHut] {
+    background-color: #444;
+    border-color: #2b2b2b
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=Z_Elves_WorkerHut] i {
+    background-image: url(../img/icons/buildings/elves_builders.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=Z_Elves_WorkerHut] span {
+    color: #000
+}
+
+.ui.modal [data-base-name=M_Humans_Barracks] i.my-icon {
+    background-image: url(../img/icons/buildings/barracks.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=M_Humans_Barracks] {
+    background-color: #444;
+    border-color: #2b2b2b
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=M_Humans_Barracks] i {
+    background-image: url(../img/icons/buildings/barracks.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=M_Humans_Barracks] span {
+    color: #000
+}
+
+.ui.modal [data-base-name=M_Elves_Barracks] i.my-icon {
+    background-image: url(../img/icons/buildings/barracks.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=M_Elves_Barracks] {
+    background-color: #444;
+    border-color: #2b2b2b
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=M_Elves_Barracks] i {
+    background-image: url(../img/icons/buildings/barracks.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=M_Elves_Barracks] span {
+    color: #000
+}
+
+.ui.modal [data-base-name=M_Fairies_Barracks] i.my-icon {
+    background-image: url(../img/icons/buildings/barracks.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=M_Fairies_Barracks] {
+    background-color: #444;
+    border-color: #2b2b2b
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=M_Fairies_Barracks] i {
+    background-image: url(../img/icons/buildings/barracks.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=M_Fairies_Barracks] span {
+    color: #000
+}
+
+.ui.modal [data-base-name=M_Orcs_Barracks] i.my-icon {
+    background-image: url(../img/icons/buildings/barracks.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=M_Orcs_Barracks] {
+    background-color: #444;
+    border-color: #2b2b2b
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=M_Orcs_Barracks] i {
+    background-image: url(../img/icons/buildings/barracks.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=M_Orcs_Barracks] span {
+    color: #000
+}
+
+.ui.modal [data-base-name=Y_Humans_Trader] i.my-icon {
+    background-image: url(../img/icons/buildings/trader.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=Y_Humans_Trader] {
+    background-color: #444;
+    border-color: #2b2b2b
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=Y_Humans_Trader] i {
+    background-image: url(../img/icons/buildings/trader.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=Y_Humans_Trader] span {
+    color: #000
+}
+
+.ui.modal [data-base-name=Y_Elves_Trader] i.my-icon {
+    background-image: url(../img/icons/buildings/trader.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=Y_Elves_Trader] {
+    background-color: #444;
+    border-color: #2b2b2b
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=Y_Elves_Trader] i {
+    background-image: url(../img/icons/buildings/trader.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=Y_Elves_Trader] span {
+    color: #000
+}
+
+.ui.modal [data-base-name=D_Humans_MagicAcademy] i.my-icon {
+    background-image: url(../img/icons/buildings/academy.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=D_Humans_MagicAcademy] {
+    background-color: #444;
+    border-color: #2b2b2b
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=D_Humans_MagicAcademy] i {
+    background-image: url(../img/icons/buildings/academy.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=D_Humans_MagicAcademy] span {
+    color: #000
+}
+
+.ui.modal [data-base-name=D_Elves_MagicAcademy] i.my-icon {
+    background-image: url(../img/icons/buildings/academy.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=D_Elves_MagicAcademy] {
+    background-color: #444;
+    border-color: #2b2b2b
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=D_Elves_MagicAcademy] i {
+    background-image: url(../img/icons/buildings/academy.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=D_Elves_MagicAcademy] span {
+    color: #000
+}
+
+.ui.modal [data-base-name=R_Humans_Residential] i.my-icon {
+    background-image: url(../img/icons/buildings/residential.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=R_Humans_Residential] {
+    background-color: #e7c6a5;
+    border-color: #dcad7d
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=R_Humans_Residential] i {
+    background-image: url(../img/icons/buildings/residential.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=R_Humans_Residential] span {
+    color: #c07a33
+}
+
+.ui.modal [data-base-name=R_Elves_Residential] i.my-icon {
+    background-image: url(../img/icons/buildings/residential.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=R_Elves_Residential] {
+    background-color: #e7c6a5;
+    border-color: #dcad7d
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=R_Elves_Residential] i {
+    background-image: url(../img/icons/buildings/residential.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=R_Elves_Residential] span {
+    color: #c07a33
+}
+
+.ui.modal [data-base-name=R_Humans_Premium_Residential] i.my-icon {
+    background-image: url(../img/icons/buildings/residential.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=R_Humans_Premium_Residential] {
+    background-color: #e7c6a5;
+    border-color: #dcad7d
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=R_Humans_Premium_Residential] i {
+    background-image: url(../img/icons/buildings/residential.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=R_Humans_Premium_Residential] span {
+    color: #c07a33
+}
+
+.ui.modal [data-base-name=R_Elves_Premium_Residential] i.my-icon {
+    background-image: url(../img/icons/buildings/residential.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=R_Elves_Premium_Residential] {
+    background-color: #e7c6a5;
+    border-color: #dcad7d
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=R_Elves_Premium_Residential] i {
+    background-image: url(../img/icons/buildings/residential.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=R_Elves_Premium_Residential] span {
+    color: #c07a33
+}
+
+.ui.modal [data-base-name=P_Humans_Workshop] i.my-icon {
+    background-image: url(../img/icons/buildings/workshop.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=P_Humans_Workshop] {
+    background-color: #9bc4e2;
+    border-color: #73add7
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=P_Humans_Workshop] i {
+    background-image: url(../img/icons/buildings/workshop.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=P_Humans_Workshop] span {
+    color: #337cb1
+}
+
+.ui.modal [data-base-name=P_Elves_Workshop] i.my-icon {
+    background-image: url(../img/icons/buildings/workshop.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=P_Elves_Workshop] {
+    background-color: #9bc4e2;
+    border-color: #73add7
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=P_Elves_Workshop] i {
+    background-image: url(../img/icons/buildings/workshop.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=P_Elves_Workshop] span {
+    color: #337cb1
+}
+
+.ui.modal [data-base-name=P_Humans_Premium_Workshop] i.my-icon {
+    background-image: url(../img/icons/buildings/workshop.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=P_Humans_Premium_Workshop] {
+    background-color: #9bc4e2;
+    border-color: #73add7
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=P_Humans_Premium_Workshop] i {
+    background-image: url(../img/icons/buildings/workshop.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=P_Humans_Premium_Workshop] span {
+    color: #337cb1
+}
+
+.ui.modal [data-base-name=P_Elves_Premium_Workshop] i.my-icon {
+    background-image: url(../img/icons/buildings/workshop.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=P_Elves_Premium_Workshop] {
+    background-color: #9bc4e2;
+    border-color: #73add7
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=P_Elves_Premium_Workshop] i {
+    background-image: url(../img/icons/buildings/workshop.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=P_Elves_Premium_Workshop] span {
+    color: #337cb1
+}
+
+.ui.modal [data-base-name=O_Humans_Armory] i.my-icon {
+    background-image: url(../img/icons/buildings/armory.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=O_Humans_Armory] {
+    background-color: #adeaea;
+    border-color: #84e0e0
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=O_Humans_Armory] i {
+    background-image: url(../img/icons/buildings/armory.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=O_Humans_Armory] span {
+    color: #34caca
+}
+
+.ui.modal [data-base-name=O_Elves_Armory] i.my-icon {
+    background-image: url(../img/icons/buildings/armory.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=O_Elves_Armory] {
+    background-color: #adeaea;
+    border-color: #84e0e0
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=O_Elves_Armory] i {
+    background-image: url(../img/icons/buildings/armory.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=O_Elves_Armory] span {
+    color: #34caca
+}
+
+.ui.modal [data-base-name=G_Humans_FactoryStone] i.my-icon {
+    background-image: url(../img/icons/resources/marble.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryStone] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryStone] i {
+    background-image: url(../img/icons/resources/marble.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryStone] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Elves_FactoryStone] i.my-icon {
+    background-image: url(../img/icons/resources/marble.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryStone] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryStone] i {
+    background-image: url(../img/icons/resources/marble.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryStone] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Humans_FactoryMetal] i.my-icon {
+    background-image: url(../img/icons/resources/steel.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryMetal] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryMetal] i {
+    background-image: url(../img/icons/resources/steel.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryMetal] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Elves_FactoryMetal] i.my-icon {
+    background-image: url(../img/icons/resources/steel.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryMetal] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryMetal] i {
+    background-image: url(../img/icons/resources/steel.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryMetal] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Humans_FactoryWood] i.my-icon {
+    background-image: url(../img/icons/resources/planks.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryWood] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryWood] i {
+    background-image: url(../img/icons/resources/planks.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryWood] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Elves_FactoryWood] i.my-icon {
+    background-image: url(../img/icons/resources/planks.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryWood] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryWood] i {
+    background-image: url(../img/icons/resources/planks.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryWood] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Humans_FactoryGlass] i.my-icon {
+    background-image: url(../img/icons/resources/crystal.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryGlass] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryGlass] i {
+    background-image: url(../img/icons/resources/crystal.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryGlass] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Elves_FactoryGlass] i.my-icon {
+    background-image: url(../img/icons/resources/crystal.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryGlass] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryGlass] i {
+    background-image: url(../img/icons/resources/crystal.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryGlass] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Humans_FactoryPaper] i.my-icon {
+    background-image: url(../img/icons/resources/scrolls.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryPaper] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryPaper] i {
+    background-image: url(../img/icons/resources/scrolls.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryPaper] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Elves_FactoryPaper] i.my-icon {
+    background-image: url(../img/icons/resources/scrolls.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryPaper] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryPaper] i {
+    background-image: url(../img/icons/resources/scrolls.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryPaper] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Humans_FactoryFabric] i.my-icon {
+    background-image: url(../img/icons/resources/silk.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryFabric] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryFabric] i {
+    background-image: url(../img/icons/resources/silk.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryFabric] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Elves_FactoryFabric] i.my-icon {
+    background-image: url(../img/icons/resources/silk.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryFabric] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryFabric] i {
+    background-image: url(../img/icons/resources/silk.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryFabric] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Humans_FactoryElixir] i.my-icon {
+    background-image: url(../img/icons/resources/elixir.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryElixir] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryElixir] i {
+    background-image: url(../img/icons/resources/elixir.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryElixir] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Elves_FactoryElixir] i.my-icon {
+    background-image: url(../img/icons/resources/elixir.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryElixir] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryElixir] i {
+    background-image: url(../img/icons/resources/elixir.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryElixir] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Humans_FactoryMagic] i.my-icon {
+    background-image: url(../img/icons/resources/magic_dust.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryMagic] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryMagic] i {
+    background-image: url(../img/icons/resources/magic_dust.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryMagic] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Elves_FactoryMagic] i.my-icon {
+    background-image: url(../img/icons/resources/magic_dust.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryMagic] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryMagic] i {
+    background-image: url(../img/icons/resources/magic_dust.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryMagic] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Humans_FactoryGems] i.my-icon {
+    background-image: url(../img/icons/resources/gems.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryGems] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryGems] i {
+    background-image: url(../img/icons/resources/gems.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Humans_FactoryGems] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=G_Elves_FactoryGems] i.my-icon {
+    background-image: url(../img/icons/resources/gems.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryGems] {
+    background-color: #edcb62;
+    border-color: #e8bc34
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryGems] i {
+    background-image: url(../img/icons/resources/gems.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=G_Elves_FactoryGems] span {
+    color: #a38013
+}
+
+.ui.modal [data-base-name=B_Dwarfs_Portal] i.my-icon {
+    background-image: url(../img/icons/buildings/dwarfs.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_Portal] i {
+    background-image: url(../img/icons/buildings/dwarfs.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Dwarfs_Foundry] i.my-icon {
+    background-image: url(../img/icons/resources/dwarfs_copper.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_Foundry] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_Foundry] i {
+    background-image: url(../img/icons/resources/dwarfs_copper.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_Foundry] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Dwarfs_Mine] i.my-icon {
+    background-image: url(../img/icons/resources/dwarfs_granite.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_Mine] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_Mine] i {
+    background-image: url(../img/icons/resources/dwarfs_granite.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_Mine] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Fairies_Portal] i.my-icon {
+    background-image: url(../img/icons/buildings/fairies.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_Portal] i {
+    background-image: url(../img/icons/buildings/fairies.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Fairies_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/fairies_ambrosia.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_Production1] i {
+    background-image: url(../img/icons/resources/fairies_ambrosia.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Fairies_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/fairies_soma.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_Production2] i {
+    background-image: url(../img/icons/resources/fairies_soma.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Orcs_Portal] i.my-icon {
+    background-image: url(../img/icons/buildings/orcs.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_Portal] i {
+    background-image: url(../img/icons/buildings/orcs.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Orcs_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/orcs_shroomofwisdom.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_Production1] i {
+    background-image: url(../img/icons/resources/orcs_shroomofwisdom.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Orcs_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/orcs_loot.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_Production2] i {
+    background-image: url(../img/icons/resources/orcs_loot.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr4_Portal] i.my-icon {
+    background-image: url(../img/icons/buildings/woodelves.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Portal] i {
+    background-image: url(../img/icons/buildings/woodelves.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Gr4_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/gr4_manatears.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Production1] i {
+    background-image: url(../img/icons/resources/gr4_manatears.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr4_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/gr4_refinedmarble.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Production2] i {
+    background-image: url(../img/icons/resources/gr4_refinedmarble.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr4_Production3] i.my-icon {
+    background-image: url(../img/icons/resources/gr4_refinedsteel.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Production3] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Production3] i {
+    background-image: url(../img/icons/resources/gr4_refinedsteel.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Production3] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr4_Production4] i.my-icon {
+    background-image: url(../img/icons/resources/gr4_refinedplanks.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Production4] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Production4] i {
+    background-image: url(../img/icons/resources/gr4_refinedplanks.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_Production4] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr5_Specialstreet] i.my-icon {
+    background-image: url(../img/icons/resources/gr5_apprentices.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Specialstreet] {
+    background-color: #826bb3;
+    border-color: #68509c
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Specialstreet] i {
+    background-image: url(../img/icons/resources/gr5_apprentices.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Specialstreet] span {
+    color: #3b2d58
+}
+
+.ui.modal [data-base-name=B_Gr5_Portal] i.my-icon {
+    background-image: url(../img/icons/buildings/gr5.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Portal] i {
+    background-image: url(../img/icons/buildings/gr5.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Gr5_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/gr5_necromancers.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Production1] i {
+    background-image: url(../img/icons/resources/gr5_necromancers.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr5_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/gr5_alchemists.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Production2] i {
+    background-image: url(../img/icons/resources/gr5_alchemists.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr5_Production3] i.my-icon {
+    background-image: url(../img/icons/resources/gr5_arcanologists.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Production3] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Production3] i {
+    background-image: url(../img/icons/resources/gr5_arcanologists.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_Production3] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr6_Portal] i.my-icon {
+    background-image: url(../img/icons/buildings/gr6.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_Portal] i {
+    background-image: url(../img/icons/buildings/gr6.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Gr6_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/gr6_fertilizer.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_Production1] i {
+    background-image: url(../img/icons/resources/gr6_fertilizer.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr6_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/gr6_grain.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_Production2] i {
+    background-image: url(../img/icons/resources/gr6_grain.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-cityentity-id=B_Gr6_Production2_1] i.my-icon {
+    background-image: url(../img/icons/resources/gr6_grain.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-cityentity-id=B_Gr6_Production2_1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-cityentity-id=B_Gr6_Production2_1] i {
+    background-image: url(../img/icons/resources/gr6_grain.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-cityentity-id=B_Gr6_Production2_1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-cityentity-id=B_Gr6_Production2_2] i.my-icon {
+    background-image: url(../img/icons/resources/gr6_carrots.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-cityentity-id=B_Gr6_Production2_2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-cityentity-id=B_Gr6_Production2_2] i {
+    background-image: url(../img/icons/resources/gr6_carrots.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-cityentity-id=B_Gr6_Production2_2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-cityentity-id=B_Gr6_Production2_3] i.my-icon {
+    background-image: url(../img/icons/resources/gr6_pumpkins.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-cityentity-id=B_Gr6_Production2_3] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-cityentity-id=B_Gr6_Production2_3] i {
+    background-image: url(../img/icons/resources/gr6_pumpkins.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-cityentity-id=B_Gr6_Production2_3] span {
+    color: #523e7a
+}
+
+.ui.modal [data-cityentity-id=B_Gr6_Production2_4] i.my-icon {
+    background-image: url(../img/icons/resources/gr6_apples.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-cityentity-id=B_Gr6_Production2_4] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-cityentity-id=B_Gr6_Production2_4] i {
+    background-image: url(../img/icons/resources/gr6_apples.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-cityentity-id=B_Gr6_Production2_4] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr7_Portal] i.my-icon {
+    background-image: url(../img/icons/buildings/gr7.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Portal] i {
+    background-image: url(../img/icons/buildings/gr7.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Gr7_CanalNS] i.my-icon {
+    background-image: url(../img/icons/resources/gr7_toll.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_CanalNS] {
+    background-color: #826bb3;
+    border-color: #68509c
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_CanalNS] i {
+    background-image: url(../img/icons/resources/gr7_toll.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_CanalNS] span {
+    color: #3b2d58
+}
+
+.ui.modal [data-base-name=B_Gr7_CanalEW] i.my-icon {
+    background-image: url(../img/icons/resources/gr7_toll.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_CanalEW] {
+    background-color: #826bb3;
+    border-color: #68509c
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_CanalEW] i {
+    background-image: url(../img/icons/resources/gr7_toll.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_CanalEW] span {
+    color: #3b2d58
+}
+
+.ui.modal [data-base-name=B_Gr7_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/gr7_airartefacts.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Production1] i {
+    background-image: url(../img/icons/resources/gr7_airartefacts.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr7_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/gr7_fireartefacts.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Production2] i {
+    background-image: url(../img/icons/resources/gr7_fireartefacts.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr7_Production3] i.my-icon {
+    background-image: url(../img/icons/resources/gr7_earthartefacts.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Production3] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Production3] i {
+    background-image: url(../img/icons/resources/gr7_earthartefacts.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Production3] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr7_Production4] i.my-icon {
+    background-image: url(../img/icons/resources/gr7_waterartefacts.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Production4] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Production4] i {
+    background-image: url(../img/icons/resources/gr7_waterartefacts.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_Production4] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr8_Portal] i.my-icon {
+    background-image: url(../img/icons/buildings/gr8.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Portal] i {
+    background-image: url(../img/icons/buildings/gr8.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Gr8_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/gr8_gravegoods.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Production1] i {
+    background-image: url(../img/icons/resources/gr8_gravegoods.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr8_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/gr8_traps.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Production2] i {
+    background-image: url(../img/icons/resources/gr8_traps.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr8_Monument1] i.my-icon {
+    background-image: url(../img/icons/resources/prestige.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Monument1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Monument1] i {
+    background-image: url(../img/icons/resources/prestige.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Monument1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr8_Monument2] i.my-icon {
+    background-image: url(../img/icons/resources/prestige.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Monument2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Monument2] i {
+    background-image: url(../img/icons/resources/prestige.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Monument2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr8_Monument3] i.my-icon {
+    background-image: url(../img/icons/resources/prestige.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Monument3] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Monument3] i {
+    background-image: url(../img/icons/resources/prestige.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Monument3] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr8_Monument4] i.my-icon {
+    background-image: url(../img/icons/resources/prestige.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Monument4] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Monument4] i {
+    background-image: url(../img/icons/resources/prestige.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_Monument4] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr9_Portal] i.my-icon {
+    background-image: url(../img/icons/buildings/gr9.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Portal] i {
+    background-image: url(../img/icons/buildings/gr9.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Gr9_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/gr9_nutria.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Production1] i {
+    background-image: url(../img/icons/resources/gr9_nutria.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr9_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/gr9_nutrib.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Production2] i {
+    background-image: url(../img/icons/resources/gr9_nutrib.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr9_Production3] i.my-icon {
+    background-image: url(../img/icons/resources/gr9_nutric.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Production3] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Production3] i {
+    background-image: url(../img/icons/resources/gr9_nutric.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Production3] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr9_Production4] i.my-icon {
+    background-image: url(../img/icons/resources/gr9_nutrid.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Production4] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Production4] i {
+    background-image: url(../img/icons/resources/gr9_nutrid.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_Production4] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr10_Portal] i.my-icon {
+    background-image: url(../img/icons/buildings/gr10.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Portal] i {
+    background-image: url(../img/icons/buildings/gr10.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Gr10_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/gr10_ideas.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Production1] i {
+    background-image: url(../img/icons/resources/gr10_ideas.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr10_Production3] i.my-icon {
+    background-image: url(../img/icons/resources/gr10_livingpaintings.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Production3] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Production3] i {
+    background-image: url(../img/icons/resources/gr10_livingpaintings.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Production3] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr10_Production4] i.my-icon {
+    background-image: url(../img/icons/resources/gr10_crystalballs.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Production4] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Production4] i {
+    background-image: url(../img/icons/resources/gr10_crystalballs.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Production4] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr10_Production5] i.my-icon {
+    background-image: url(../img/icons/resources/gr10_designs.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Production5] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Production5] i {
+    background-image: url(../img/icons/resources/gr10_designs.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_Production5] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Humans_Gr10_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/gr10_humancollections.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Humans_Gr10_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Humans_Gr10_Production2] i {
+    background-image: url(../img/icons/resources/gr10_humancollections.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Humans_Gr10_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Elves_Gr10_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/gr10_elvencollections.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Elves_Gr10_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Elves_Gr10_Production2] i {
+    background-image: url(../img/icons/resources/gr10_elvencollections.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Elves_Gr10_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr11_Portal] i.my-icon {
+    background-image: url(../img/icons/buildings/gr11.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Portal] i {
+    background-image: url(../img/icons/buildings/gr11.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Gr11_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/gr11_dwarvenpropositions.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production1] i {
+    background-image: url(../img/icons/resources/gr11_dwarvenpropositions.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr11_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/gr11_fairypropositions.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production2] i {
+    background-image: url(../img/icons/resources/gr11_fairypropositions.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr11_Production3] i.my-icon {
+    background-image: url(../img/icons/resources/gr11_strawberrybeer.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production3] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production3] i {
+    background-image: url(../img/icons/resources/gr11_strawberrybeer.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production3] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr11_Production4] i.my-icon {
+    background-image: url(../img/icons/resources/gr11_purpletea.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production4] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production4] i {
+    background-image: url(../img/icons/resources/gr11_purpletea.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production4] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Gr11_Production5] i.my-icon {
+    background-image: url(../img/icons/resources/gr11_inspirations.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production5] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production5] i {
+    background-image: url(../img/icons/resources/gr11_inspirations.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_Production5] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch17_Portal] i.my-icon {
+    background-image: url(../img/icons/buildings/ch17.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Portal] i {
+    background-image: url(../img/icons/buildings/ch17.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Ch17_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/ch17_luxuries.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production1] i {
+    background-image: url(../img/icons/resources/ch17_luxuries.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch17_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/ch17_delicacies.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production2] i {
+    background-image: url(../img/icons/resources/ch17_delicacies.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch17_Production3] i.my-icon {
+    background-image: url(../img/icons/resources/ch17_artifacts.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production3] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production3] i {
+    background-image: url(../img/icons/resources/ch17_artifacts.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production3] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch17_Production4] i.my-icon {
+    background-image: url(../img/icons/resources/ch17_luxuries.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production4] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production4] i {
+    background-image: url(../img/icons/resources/ch17_luxuries.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production4] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch17_Production5] i.my-icon {
+    background-image: url(../img/icons/resources/ch17_delicacies.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production5] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production5] i {
+    background-image: url(../img/icons/resources/ch17_delicacies.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production5] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch17_Production6] i.my-icon {
+    background-image: url(../img/icons/resources/ch17_artifacts.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production6] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production6] i {
+    background-image: url(../img/icons/resources/ch17_artifacts.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production6] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch17_Production7] i.my-icon {
+    background-image: url(../img/icons/resources/ch17_luxuries.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production7] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production7] i {
+    background-image: url(../img/icons/resources/ch17_luxuries.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production7] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch17_Production8] i.my-icon {
+    background-image: url(../img/icons/resources/ch17_delicacies.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production8] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production8] i {
+    background-image: url(../img/icons/resources/ch17_delicacies.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production8] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch17_Production9] i.my-icon {
+    background-image: url(../img/icons/resources/ch17_artifacts.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production9] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production9] i {
+    background-image: url(../img/icons/resources/ch17_artifacts.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_Production9] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch18_Portal] i.my-icon {
+    background-image: url(../img/icons/buildings/ch18.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Portal] i {
+    background-image: url(../img/icons/buildings/ch18.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Ch18_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/ch18_elvenar.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production1] i {
+    background-image: url(../img/icons/resources/ch18_elvenar.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch18_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/ch18_water.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production2] i {
+    background-image: url(../img/icons/resources/ch18_water.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch18_Production3] i.my-icon {
+    background-image: url(../img/icons/resources/ch18_fire.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production3] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production3] i {
+    background-image: url(../img/icons/resources/ch18_fire.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production3] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch18_Production4] i.my-icon {
+    background-image: url(../img/icons/resources/ch18_wind.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production4] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production4] i {
+    background-image: url(../img/icons/resources/ch18_wind.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production4] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch18_Production5] i.my-icon {
+    background-image: url(../img/icons/resources/ch18_earth.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production5] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production5] i {
+    background-image: url(../img/icons/resources/ch18_earth.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_Production5] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch19_Portal] i.my-icon {
+    background-image: url(../img/icons/resources/ch19_creatures3.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_Portal] i {
+    background-image: url(../img/icons/resources/ch19_creatures3.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Ch19_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/ch19_magic1.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_Production1] i {
+    background-image: url(../img/icons/resources/ch19_magic1.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch19_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/ch19_creatures1.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_Production2] i {
+    background-image: url(../img/icons/resources/ch19_creatures1.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch20_Portal] i.my-icon {
+    background-image: url(../img/icons/resources/ch20_songs.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Portal] i {
+    background-image: url(../img/icons/resources/ch20_songs.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Ch20_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/ch20_strings.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production1] i {
+    background-image: url(../img/icons/resources/ch20_strings.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch20_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/ch20_flutes.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production2] i {
+    background-image: url(../img/icons/resources/ch20_flutes.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch20_Production3] i.my-icon {
+    background-image: url(../img/icons/resources/ch20_drums.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production3] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production3] i {
+    background-image: url(../img/icons/resources/ch20_drums.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production3] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch20_Production4] i.my-icon {
+    background-image: url(../img/icons/effects/ch20_bars_boosted.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production4] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production4] i {
+    background-image: url(../img/icons/effects/ch20_bars_boosted.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production4] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch20_Production5] i.my-icon {
+    background-image: url(../img/icons/effects/ch20_bars_boosted.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production5] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production5] i {
+    background-image: url(../img/icons/effects/ch20_bars_boosted.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production5] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch20_Production6] i.my-icon {
+    background-image: url(../img/icons/effects/ch20_bars_boosted.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production6] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production6] i {
+    background-image: url(../img/icons/effects/ch20_bars_boosted.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_Production6] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch21_Portal] i.my-icon {
+    background-image: url(../img/icons/resources/ch21_oblations4.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_Portal] i {
+    background-image: url(../img/icons/resources/ch21_oblations4.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Ch21_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/ch21_prey.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_Production1] i {
+    background-image: url(../img/icons/resources/ch21_prey.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch21_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/ch21_art.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_Production2] i {
+    background-image: url(../img/icons/resources/ch21_art.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch22_Portal] i.my-icon {
+    background-image: url(../img/icons/resources/ch22_shrimps.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Portal] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Portal] i {
+    background-image: url(../img/icons/resources/ch22_shrimps.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Portal] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Ch22_Production1] i.my-icon {
+    background-image: url(../img/icons/resources/ch22_seafood.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Production1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Production1] i {
+    background-image: url(../img/icons/resources/ch22_seafood.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Production1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch22_Production2] i.my-icon {
+    background-image: url(../img/icons/resources/ch22_fish.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Production2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Production2] i {
+    background-image: url(../img/icons/resources/ch22_fish.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Production2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch22_Production3] i.my-icon {
+    background-image: url(../img/icons/resources/ch22_fruits.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Production3] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Production3] i {
+    background-image: url(../img/icons/resources/ch22_fruits.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Production3] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch22_Production4] i.my-icon {
+    background-image: url(../img/icons/resources/ch22_salt.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Production4] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Production4] i {
+    background-image: url(../img/icons/resources/ch22_salt.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_Production4] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch23_MSB] i.my-icon {
+    background-image: url(../img/icons/resources/ch23_unicornblossoms.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_MSB] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_MSB] i {
+    background-image: url(../img/icons/resources/ch23_unicornblossoms.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_MSB] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Ch23_OSB1] i.my-icon {
+    background-image: url(../img/icons/resources/ch23_dwarvenspirits.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_OSB1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_OSB1] i {
+    background-image: url(../img/icons/resources/ch23_dwarvenspirits.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_OSB1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch23_OSB2] i.my-icon {
+    background-image: url(../img/icons/resources/ch23_fairyspirits.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_OSB2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_OSB2] i {
+    background-image: url(../img/icons/resources/ch23_fairyspirits.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_OSB2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch23_OSB3] i.my-icon {
+    background-image: url(../img/icons/resources/ch23_orcspirits.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_OSB3] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_OSB3] i {
+    background-image: url(../img/icons/resources/ch23_orcspirits.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_OSB3] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch23_OSB4] i.my-icon {
+    background-image: url(../img/icons/resources/ch23_halflingspirits.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_OSB4] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_OSB4] i {
+    background-image: url(../img/icons/resources/ch23_halflingspirits.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_OSB4] span {
+    color: #523e7a
+}
+
+
+.ui.modal [data-base-name=B_All_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_all_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW1] i {
+    background-image: url(../img/icons/resources/b_all_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_All_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_all_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW2] i {
+    background-image: url(../img/icons/resources/b_all_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_All_AW3] i.my-icon {
+    background-image: url(../img/icons/resources/b_all_aw3_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW3] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW3] i {
+    background-image: url(../img/icons/resources/b_all_aw3_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW3] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_All_AW4] i.my-icon {
+    background-image: url(../img/icons/resources/b_all_aw4_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW4] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW4] i {
+    background-image: url(../img/icons/resources/b_all_aw4_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW4] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_All_AW5] i.my-icon {
+    background-image: url(../img/icons/resources/b_all_aw5_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW5] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW5] i {
+    background-image: url(../img/icons/resources/b_all_aw5_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW5] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_All_AW6] i.my-icon {
+    background-image: url(../img/icons/resources/b_all_aw6_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW6] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW6] i {
+    background-image: url(../img/icons/resources/b_all_aw6_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_All_AW6] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Humans_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_humans_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Humans_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Humans_AW1] i {
+    background-image: url(../img/icons/resources/b_humans_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Humans_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Humans_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_humans_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Humans_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Humans_AW2] i {
+    background-image: url(../img/icons/resources/b_humans_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Humans_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Elves_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_elves_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Elves_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Elves_AW1] i {
+    background-image: url(../img/icons/resources/b_elves_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Elves_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Elves_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_elves_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Elves_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Elves_AW2] i {
+    background-image: url(../img/icons/resources/b_elves_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Elves_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Dwarfs_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_dwarfs_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_AW1] i {
+    background-image: url(../img/icons/resources/b_dwarfs_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Dwarfs_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_dwarfs_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_AW2] i {
+    background-image: url(../img/icons/resources/b_dwarfs_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Dwarfs_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Fairies_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_fairies_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_AW1] i {
+    background-image: url(../img/icons/resources/b_fairies_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Fairies_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_fairies_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_AW2] i {
+    background-image: url(../img/icons/resources/b_fairies_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Fairies_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Orcs_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_orcs_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_AW1] i {
+    background-image: url(../img/icons/resources/b_orcs_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Orcs_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_orcs_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_AW2] i {
+    background-image: url(../img/icons/resources/b_orcs_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Orcs_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr4_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr4_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_AW1] i {
+    background-image: url(../img/icons/resources/b_gr4_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr4_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr4_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_AW2] i {
+    background-image: url(../img/icons/resources/b_gr4_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr4_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr5_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr5_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_AW1] i {
+    background-image: url(../img/icons/resources/b_gr5_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr5_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr5_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_AW2] i {
+    background-image: url(../img/icons/resources/b_gr5_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr5_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr6_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr6_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_AW1] i {
+    background-image: url(../img/icons/resources/b_gr6_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr6_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr6_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_AW2] i {
+    background-image: url(../img/icons/resources/b_gr6_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr6_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr7_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr7_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_AW1] i {
+    background-image: url(../img/icons/resources/b_gr7_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr7_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr7_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_AW2] i {
+    background-image: url(../img/icons/resources/b_gr7_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr7_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr8_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr8_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_AW1] i {
+    background-image: url(../img/icons/resources/b_gr8_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr8_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr8_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_AW2] i {
+    background-image: url(../img/icons/resources/b_gr8_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr8_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr9_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr9_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_AW1] i {
+    background-image: url(../img/icons/resources/b_gr9_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr9_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr9_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_AW2] i {
+    background-image: url(../img/icons/resources/b_gr9_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr9_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr10_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr10_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_AW1] i {
+    background-image: url(../img/icons/resources/b_gr10_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr10_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr10_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_AW2] i {
+    background-image: url(../img/icons/resources/b_gr10_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr10_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr11_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr11_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_AW1] i {
+    background-image: url(../img/icons/resources/b_gr11_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Gr11_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_gr11_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_AW2] i {
+    background-image: url(../img/icons/resources/b_gr11_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Gr11_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch17_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch17_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_AW1] i {
+    background-image: url(../img/icons/resources/b_ch17_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch17_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch17_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_AW2] i {
+    background-image: url(../img/icons/resources/b_ch17_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch17_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch18_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch18_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_AW1] i {
+    background-image: url(../img/icons/resources/b_ch18_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch18_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch18_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_AW2] i {
+    background-image: url(../img/icons/resources/b_ch18_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch18_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch19_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch19_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_AW1] i {
+    background-image: url(../img/icons/resources/b_ch19_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch19_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch19_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_AW2] i {
+    background-image: url(../img/icons/resources/b_ch19_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch19_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch20_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch20_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_AW1] i {
+    background-image: url(../img/icons/resources/b_ch20_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch20_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch20_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_AW2] i {
+    background-image: url(../img/icons/resources/b_ch20_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch20_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch21_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch21_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_AW1] i {
+    background-image: url(../img/icons/resources/b_ch21_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch21_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch21_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_AW2] i {
+    background-image: url(../img/icons/resources/b_ch21_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch21_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch22_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch22_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_AW1] i {
+    background-image: url(../img/icons/resources/b_ch22_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch22_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch22_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_AW2] i {
+    background-image: url(../img/icons/resources/b_ch22_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch22_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch23_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch23_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_AW1] i {
+    background-image: url(../img/icons/resources/b_ch23_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch23_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch23_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_AW2] i {
+    background-image: url(../img/icons/resources/b_ch23_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch23_AW2] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name^=S_Humans] i.my-icon {
+    background-image: url(../img/icons/buildings/street.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Humans] {
+    background-color: #d7d7d7;
+    border-color: #bebebe
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Humans] i {
+    display: none!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Humans] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=S_Elves] i.my-icon {
+    background-image: url(../img/icons/buildings/street.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Elves] {
+    background-color: #d7d7d7;
+    border-color: #bebebe
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Elves] i {
+    display: none!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Elves] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=S_Dwarfs] i.my-icon {
+    background-image: url(../img/icons/buildings/gueststreet.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Dwarfs] {
+    background-color: #826bb3;
+    border-color: #68509c
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Dwarfs] i {
+    display: none!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Dwarfs] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=S_Fairies] i.my-icon {
+    background-image: url(../img/icons/buildings/gueststreet.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Fairies] {
+    background-color: #826bb3;
+    border-color: #68509c
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Fairies] i {
+    display: none!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Fairies] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=S_Orcs] i.my-icon {
+    background-image: url(../img/icons/buildings/gueststreet.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Orcs] {
+    background-color: #826bb3;
+    border-color: #68509c
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Orcs] i {
+    display: none!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Orcs] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=S_Gr4] i.my-icon {
+    background-image: url(../img/icons/buildings/gueststreet.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Gr4] {
+    background-color: #826bb3;
+    border-color: #68509c
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Gr4] i {
+    display: none!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Gr4] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=S_Gr6] i.my-icon {
+    background-image: url(../img/icons/buildings/gueststreet.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Gr6] {
+    background-color: #826bb3;
+    border-color: #68509c
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Gr6] i {
+    display: none!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Gr6] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=S_Ch18] i.my-icon {
+    background-image: url(../img/icons/buildings/gueststreet.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch18] {
+    background-color: #826bb3;
+    border-color: #68509c
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch18] i {
+    display: none!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch18] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=S_Ch19] i.my-icon {
+    background-image: url(../img/icons/buildings/gueststreet.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch19] {
+    background-color: #826bb3;
+    border-color: #68509c
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch19] i {
+    display: none!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch19] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=S_Ch21] i.my-icon {
+    background-image: url(../img/icons/buildings/gueststreet.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch21] {
+    background-color: #826bb3;
+    border-color: #68509c
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch21] i {
+    display: none!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch21] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=S_Ch22] i.my-icon {
+    background-image: url(../img/icons/buildings/gueststreet.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch22] {
+    background-color: #826bb3;
+    border-color: #68509c
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch22] i {
+    display: none!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch22] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Humans] i.my-icon {
+    background-image: url(../img/icons/buildings/culture.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Humans] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Humans] i {
+    background-image: url(../img/icons/buildings/culture.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Humans] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Elves] i.my-icon {
+    background-image: url(../img/icons/buildings/culture.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Elves] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Elves] i {
+    background-image: url(../img/icons/buildings/culture.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Elves] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Dwarfs] i.my-icon {
+    background-image: url(../img/icons/buildings/dwarfs.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Dwarfs] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Dwarfs] i {
+    background-image: url(../img/icons/buildings/dwarfs.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Dwarfs] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Fairies] i.my-icon {
+    background-image: url(../img/icons/buildings/fairies.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Fairies] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Fairies] i {
+    background-image: url(../img/icons/buildings/fairies.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Fairies] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Orcs] i.my-icon {
+    background-image: url(../img/icons/buildings/orcs.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Orcs] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Orcs] i {
+    background-image: url(../img/icons/buildings/orcs.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Orcs] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Gr4] i.my-icon {
+    background-image: url(../img/icons/buildings/woodelves.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr4] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr4] i {
+    background-image: url(../img/icons/buildings/woodelves.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr4] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Gr5] i.my-icon {
+    background-image: url(../img/icons/buildings/gr5.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr5] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr5] i {
+    background-image: url(../img/icons/buildings/gr5.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr5] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Gr6] i.my-icon {
+    background-image: url(../img/icons/buildings/gr6.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr6] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr6] i {
+    background-image: url(../img/icons/buildings/gr6.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr6] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Gr7] i.my-icon {
+    background-image: url(../img/icons/buildings/gr7.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr7] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr7] i {
+    background-image: url(../img/icons/buildings/gr7.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr7] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Gr8] i.my-icon {
+    background-image: url(../img/icons/buildings/gr8.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr8] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr8] i {
+    background-image: url(../img/icons/buildings/gr8.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr8] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Gr9] i.my-icon {
+    background-image: url(../img/icons/buildings/gr9.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr9] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr9] i {
+    background-image: url(../img/icons/buildings/gr9.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr9] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Gr10] i.my-icon {
+    background-image: url(../img/icons/buildings/gr10.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr10] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr10] i {
+    background-image: url(../img/icons/buildings/gr10.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr10] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Gr11] i.my-icon {
+    background-image: url(../img/icons/buildings/gr11.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr11] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr11] i {
+    background-image: url(../img/icons/buildings/gr11.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Gr11] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Ch17] i.my-icon {
+    background-image: url(../img/icons/buildings/ch17.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch17] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch17] i {
+    background-image: url(../img/icons/buildings/ch17.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch17] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Ch18] i.my-icon {
+    background-image: url(../img/icons/buildings/ch18.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch18] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch18] i {
+    background-image: url(../img/icons/buildings/ch18.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch18] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Ch19] i.my-icon {
+    background-image: url(../img/icons/buildings/ch19.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch19] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch19] i {
+    background-image: url(../img/icons/buildings/ch19.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch19] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Ch20] i.my-icon {
+    background-image: url(../img/icons/buildings/ch20.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch20] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch20] i {
+    background-image: url(../img/icons/buildings/ch20.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch20] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Ch21] i.my-icon {
+    background-image: url(../img/icons/buildings/ch21.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch21] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch21] i {
+    background-image: url(../img/icons/buildings/ch21.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch21] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Ch22] i.my-icon {
+    background-image: url(../img/icons/buildings/ch22.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch22] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch22] i {
+    background-image: url(../img/icons/buildings/ch22.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch22] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Sale] i.my-icon {
+    background-image: url(../img/icons/buildings/event.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Sale] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Sale] i {
+    background-image: url(../img/icons/buildings/event.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Sale] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Evt] i.my-icon {
+    background-image: url(../img/icons/buildings/event.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt] i {
+    background-image: url(../img/icons/buildings/event.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_Easter_XIX_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_easter_xix.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Easter_XIX_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Easter_XIX_] i {
+    background-image: url(../img/icons/buildings/ins_evo_easter_xix.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Easter_XIX_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_Summer_XIX_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_summer_xix.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Summer_XIX_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Summer_XIX_] i {
+    background-image: url(../img/icons/buildings/ins_evo_summer_xix.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Summer_XIX_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_Autumn_XIX_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_autumn_xix.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Autumn_XIX_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Autumn_XIX_] i {
+    background-image: url(../img/icons/buildings/ins_evo_autumn_xix.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Autumn_XIX_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_Winter_XIX_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_winter_xix.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Winter_XIX_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Winter_XIX_] i {
+    background-image: url(../img/icons/buildings/ins_evo_winter_xix.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Winter_XIX_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_MM_XIX_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_mm_xix.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_MM_XIX_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_MM_XIX_] i {
+    background-image: url(../img/icons/buildings/ins_evo_mm_xix.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_MM_XIX_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_Carnival_XX_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_carnival_xx.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Carnival_XX_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Carnival_XX_] i {
+    background-image: url(../img/icons/buildings/ins_evo_carnival_xx.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Carnival_XX_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_Car_XX_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_carnival_xx.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Car_XX_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Car_XX_] i {
+    background-image: url(../img/icons/buildings/ins_evo_carnival_xx.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Car_XX_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_Easter_XX_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_easter_xx.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Easter_XX_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Easter_XX_] i {
+    background-image: url(../img/icons/buildings/ins_evo_easter_xx.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_Easter_XX_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_May_XX_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_may_xx.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_May_XX_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_May_XX_] i {
+    background-image: url(../img/icons/buildings/ins_evo_may_xx.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_May_XX_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_July_XX_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_july_xx.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_July_XX_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_July_XX_] i {
+    background-image: url(../img/icons/buildings/ins_evo_july_xx.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_July_XX_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_September_XX_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_september_xx.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_September_XX_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_September_XX_] i {
+    background-image: url(../img/icons/buildings/ins_evo_september_xx.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_September_XX_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_October_XX_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_october_xx.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_October_XX_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_October_XX_] i {
+    background-image: url(../img/icons/buildings/ins_evo_october_xx.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_October_XX_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_December_XX_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_december_xx.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_December_XX_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_December_XX_] i {
+    background-image: url(../img/icons/buildings/ins_evo_december_xx.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_December_XX_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_February_XXI_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_february_xxi.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_February_XXI_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_February_XXI_] i {
+    background-image: url(../img/icons/buildings/ins_evo_february_xxi.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_February_XXI_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_March_XXI_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_march_xxi.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_March_XXI_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_March_XXI_] i {
+    background-image: url(../img/icons/buildings/ins_evo_march_xxi.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_March_XXI_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_May_XXI_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_may_xxi.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_May_XXI_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_May_XXI_] i {
+    background-image: url(../img/icons/buildings/ins_evo_may_xxi.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_May_XXI_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_July_XXI_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_july_xxi.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_July_XXI_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_July_XXI_] i {
+    background-image: url(../img/icons/buildings/ins_evo_july_xxi.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_July_XXI_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_September_XXI_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_september_xxi.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_September_XXI_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_September_XXI_] i {
+    background-image: url(../img/icons/buildings/ins_evo_september_xxi.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_September_XXI_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_October_XXI_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_october_xxi.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_October_XXI_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_October_XXI_] i {
+    background-image: url(../img/icons/buildings/ins_evo_october_xxi.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_October_XXI_] span {
+    color: #f1ca00
+}
+
+.ui.modal [data-base-name^=A_Evt_Evo_December_XXI_] i.my-icon {
+    background-image: url(../img/icons/buildings/ins_evo_december_xxi.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_December_XXI_] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_December_XXI_] i {
+    background-image: url(../img/icons/buildings/ins_evo_december_xxi.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Evt_Evo_December_XXI_] span {
+    color: #f1ca00
+}
