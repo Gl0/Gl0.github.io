@@ -368,7 +368,7 @@ i.my-icon {
     width: 20px;
     height: 20px;
     vertical-align: middle;
-    background-image: url(../img/icons/unknown.png);
+    background-image: url(../img/icons/misc/unknown.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover
@@ -2714,6 +2714,107 @@ i.my-icon.my-icon-premium::after {
     color: #523e7a
 }
 
+.ui.modal [data-base-name=B_Ch24_MSB1] i.my-icon {
+    background-image: url(../img/icons/resources/ch24_prophecies.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_MSB1] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_MSB1] i {
+    background-image: url(../img/icons/resources/ch24_prophecies.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_MSB1] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Ch24_MSB2] i.my-icon {
+    background-image: url(../img/icons/resources/ch24_studies.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_MSB2] {
+    background-color: #5d478b;
+    border-color: #463669
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_MSB2] i {
+    background-image: url(../img/icons/resources/ch24_studies.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_MSB2] span {
+    color: #191326
+}
+
+.ui.modal [data-base-name=B_Ch24_OSB1] i.my-icon {
+    background-image: url(../img/icons/resources/ch24_servants.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_OSB1] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_OSB1] i {
+    background-image: url(../img/icons/resources/ch24_servants.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_OSB1] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch24_OSB2] i.my-icon {
+    background-image: url(../img/icons/resources/ch24_warriors.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_OSB2] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_OSB2] i {
+    background-image: url(../img/icons/resources/ch24_warriors.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_OSB2] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch24_OSB3] i.my-icon {
+    background-image: url(../img/icons/resources/ch24_farmers.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_OSB3] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_OSB3] i {
+    background-image: url(../img/icons/resources/ch24_farmers.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_OSB3] span {
+    color: #523e7a
+}
+
+.ui.modal [data-base-name=B_Ch24_OSB4] i.my-icon {
+    background-image: url(../img/icons/resources/ch24_workers.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_OSB4] {
+    background-color: #9f8dc5;
+    border-color: #826bb3
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_OSB4] i {
+    background-image: url(../img/icons/resources/ch24_workers.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_OSB4] span {
+    color: #523e7a
+}
 
 .ui.modal [data-base-name=B_All_AW1] i.my-icon {
     background-image: url(../img/icons/resources/b_all_aw1_shards.png)!important
@@ -3497,6 +3598,40 @@ i.my-icon.my-icon-premium::after {
     color: #873e4e
 }
 
+.ui.modal [data-base-name=B_Ch24_AW1] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch24_aw1_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_AW1] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_AW1] i {
+    background-image: url(../img/icons/resources/b_ch24_aw1_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_AW1] span {
+    color: #873e4e
+}
+
+.ui.modal [data-base-name=B_Ch24_AW2] i.my-icon {
+    background-image: url(../img/icons/resources/b_ch24_aw2_shards.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_AW2] {
+    background-color: #cd919e;
+    border-color: #bd6e7f
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_AW2] i {
+    background-image: url(../img/icons/resources/b_ch24_aw2_shards.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name=B_Ch24_AW2] span {
+    color: #873e4e
+}
+
 .ui.modal [data-base-name^=S_Humans] i.my-icon {
     background-image: url(../img/icons/buildings/street.png)!important
 }
@@ -3528,6 +3663,23 @@ i.my-icon.my-icon-premium::after {
 }
 
 #mapContainer #map #mapBuildings .building[data-base-name^=S_Elves] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=S_All] i.my-icon {
+    background-image: url(../img/icons/buildings/street.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_All] {
+    background-color: #d7d7d7;
+    border-color: #bebebe
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_All] i {
+    display: none!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_All] span {
     display: none!important
 }
 
@@ -3681,6 +3833,23 @@ i.my-icon.my-icon-premium::after {
 }
 
 #mapContainer #map #mapBuildings .building[data-base-name^=S_Ch22] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=S_Ch24] i.my-icon {
+    background-image: url(../img/icons/buildings/gueststreet.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch24] {
+    background-color: #826bb3;
+    border-color: #68509c
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch24] i {
+    display: none!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=S_Ch24] span {
     display: none!important
 }
 
@@ -4004,6 +4173,40 @@ i.my-icon.my-icon-premium::after {
 }
 
 #mapContainer #map #mapBuildings .building[data-base-name^=A_Ch22] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Ch23] i.my-icon {
+    background-image: url(../img/icons/buildings/ch23.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch23] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch23] i {
+    background-image: url(../img/icons/buildings/ch23.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch23] span {
+    display: none!important
+}
+
+.ui.modal [data-base-name^=A_Ch24] i.my-icon {
+    background-image: url(../img/icons/buildings/ch24.png)!important
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch24] {
+    background-color: #ffec8b;
+    border-color: #ffe458
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch24] i {
+    background-image: url(../img/icons/buildings/ch24.png)
+}
+
+#mapContainer #map #mapBuildings .building[data-base-name^=A_Ch24] span {
     display: none!important
 }
 
